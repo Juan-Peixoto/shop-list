@@ -38,14 +38,14 @@ addButton.onclick = event =>
 
     total += sumValues;
 
-    totalView.innerHTML = `R$ ${total.toFixed(2)}`;
+    totalView.innerHTML = `$ ${total.toFixed(2)}`;
 
     itensList.innerHTML +=
     `
         <div class="listItem">
             <span id="itemName">${formValues[0][1]}</span>
             <span id="itemQuantity">${itemQuantity}</span>
-            <span id="itemValue">R$ ${sumValues}</span>
+            <span id="itemValue">$ ${sumValues}</span>
         </div>
     `;
 
