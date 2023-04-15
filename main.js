@@ -1,24 +1,44 @@
 const addButton = document.getElementById('addButton');
 const itensList = document.getElementById('itensList');
-let arrOfListItens = [];
+const totalView = document.getElementById('total'); 
+const form = document.getElementById('form');
 
-const removeParent = event => {
-    event.target.parentElement.remove();
-}
+let total = 0;
 
-addButton.onclick = button =>
+addButton.onclick = event =>
 {
-    const form = document.getElementById('form');
     const formData = new FormData(form);
     const formValues = [...formData.entries()];
 
-    const itemName = formValues[0][1];
-    const itemQuantity = parseInt(formValues[1][1]);
-    const itemValue = parseFloat(formValues[2][1]);
-    const sumValues = (itemQuantity*itemValue).toFixed(2);
+    let itemQuantity = formValues[1][1];
+    let itemValue = formValues[2][1];
 
-    arrOfListItens.push([itemName, sumValues]);
-    console.log(arrOfListItens);
+    if (isNaN(parseFloat(itemValue)) && isNaN(parseInt(itemQuantity)))
+    {
+        itemValue = 0;
+        itemQuantity = 0;
+    }
+    else if (isNaN(parseFloat(itemValue)))
+    {
+        itemValue = 0;
+        itemQuantity = parseInt(itemQuantity)
+    }
+    else if (isNaN(parseInt(itemQuantity)))
+    {
+        itemQuantity = 0;
+        itemValue = parseFloat(itemValue);
+    }
+    else
+    {
+        itemQuantity = parseInt(itemQuantity);
+        itemValue = parseFloat(itemValue);
+    }
+    
+    const sumValues = parseFloat((itemQuantity*itemValue));
+
+    total += sumValues;
+
+    totalView.innerHTML = `R$ ${total.toFixed(2)}`;
 
     itensList.innerHTML +=
     `
@@ -26,16 +46,10 @@ addButton.onclick = button =>
             <span id="itemName">${formValues[0][1]}</span>
             <span id="itemQuantity">${itemQuantity}</span>
             <span id="itemValue">R$ ${sumValues}</span>
-
-            <button onclick="removeParent(event)" id="removeButton">X</button>
         </div>
     `;
 
-    button.preventDefault();
-};
+    form.reset();
 
-/* Lista de compras
-5-Salvar valores em lista
-6-Exibir na tela soma total dos valores de cada item da lista
-7-Permitir ao usuário remover itens da lista
-*/
+    event.preventDefault();
+};
