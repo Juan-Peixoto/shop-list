@@ -9,14 +9,44 @@
         <meta name="author" content="Juan Peixoto">
 
         <script defer src="./main.js"></script>
+
         <link rel="stylesheet" href="./styles/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 
         <title>Shop List App</title>
-        
+
     </head>
 
     <body>
-        
-    </body>
+        <div class="shop-menu">
+            <div class="menu-body">
+                <div id="itensList">
+                    <!-- List Item Element
 
+                    <div class="listItem">
+                        <span id="itemName">Banana Prata</span>
+                        <span id="itemQuantity">2</span>
+                        <span id="itemValue">R$ 10,00</span>
+
+                        <button id="removeButton">X</button>
+                    </div>
+                    -->
+                </div>
+
+                <div id="total">Total</div>
+            </div>
+
+            <div class="menu-controls">
+                <form class="controls-form">
+                    <label>Item <input id="itemName" type="text" required></label>
+                    <label>Quantity <input id="itemQuantity" type="number" min="1" max="100" required></label>
+                    <label>Value <input id="itemValue" type="text" required></label>
+
+                    <button id="addButton" class="add-button">Add</button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
