@@ -32,7 +32,7 @@ body div.shop-menu div.menu-body {
 }
 body div.shop-menu div.menu-body div#itensList {
   height: 90%;
-  overflow-y: scroll;
+  overflow: auto;
 }
 body div.shop-menu div.menu-body div#itensList div.listItem {
   padding: 5px;
@@ -54,7 +54,6 @@ body div.shop-menu div.menu-body div#itensList div.listItem button#removeButton 
   color: white;
 }
 body div.shop-menu div.menu-body div#itensList div.listItem button#removeButton:hover {
-  border: 1px solid black;
   background-color: red;
   color: black;
 }
@@ -95,9 +94,10 @@ body div.shop-menu div.menu-controls form.controls-form label input#itemName {
   padding: 3px 10px;
   width: 150px;
 }
-body div.shop-menu div.menu-controls form.controls-form button.add-button {
+body div.shop-menu div.menu-controls form.controls-form input.add-button {
   width: 90px;
   height: 20px;
+  line-height: 17px;
   margin: 5px;
   padding: 2px;
   border: 1px solid gray;
@@ -105,6 +105,6 @@ body div.shop-menu div.menu-controls form.controls-form button.add-button {
   border-radius: 5px;
   cursor: pointer;
 }
-body div.shop-menu div.menu-controls form.controls-form button.add-button:hover {
+body div.shop-menu div.menu-controls form.controls-form input.add-button:hover {
   border: 1px solid black;
 }/*# sourceMappingURL=main.css.map */
